@@ -1,3 +1,7 @@
+/*
+Working 12/1
+*/
+
 const mongoose = require('mongoose')
 require('dotenv').config()
 
@@ -18,6 +22,3 @@ bookSchema.methods.showData = function () {
 //exports Book
 module.exports = mongoose.model('Book', bookSchema)
 
-/*
-Working 12/1
-*/

@@ -46,33 +46,21 @@ router.get('/seed', (req, res) => {
 
 })
 
-//gets books
-router.get('/', (req, res) => {
-    console.log("========= controler /")
+//gets books using our new sexy syntax for await and async
+router.get('/', async (req, res) => {
     //goes into Mongo
-    db.Books.find()
-        //for each place, render it
-        .then((books) => {
-            res.render('index', { books })
-        })
-        .catch(err => {
-            console.log("get books Error", err)
-            res.render('error404')
-        })
+    const foundBooks = await db.Books.find()
+    res.render('index', { books: foundBooks })
 })
 
-
-router.get('/books/:id', (req, res) => {
+//SHOW
+router.get('/:id', async (req, res) => {
     console.log("controler /books/:id")
-        .then(res.render('books'))
+    const foundBook = await db.Books.findById(req.params.id)
+    res.render('show', { data: foundBook })
 })
 
 
 
 //sends our exports
 module.exports = router
-
-/*
-Broken  -- will not render seed
-
-*/
