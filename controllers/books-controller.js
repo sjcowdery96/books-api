@@ -46,6 +46,31 @@ router.get('/seed', (req, res) => {
 
 })
 
+//POST Render
+router.get('/new', (req, res) => {
+    console.log('NEW!')
+    res.render('new')
+})
+//POST Create
+
+router.post('/', (req, res) => {
+    //does some basic input checks
+    //if no image provided, assign to undefined -- mongo will fill it in
+    if (!req.body.imageURL) {
+        req.body.imageURL = "https://media.istockphoto.com/id/157482029/photo/stack-of-books.jpg?s=1024x1024&w=is&k=20&c=iQdICOnz_UmfAiFuY3d3LQe1B9cYHI3UwjTPNKBOlow="
+    }
+    //if input is not empty, but also not a valid url, assign to undefined -- mongo will fill it in
+    else if (!req.body.imageURL.startsWith("http") || !req.body.imageURL.startsWith("https")) {
+        req.body.imageURL = undefined
+    }
+    //adds the new book to the models array using Mongoose! 
+    db.Books.create(req.body)
+    //redirects us to books page
+    res.redirect('/books')
+
+})
+
+
 //gets books using our new sexy syntax for await and async
 router.get('/', async (req, res) => {
     //goes into Mongo
@@ -55,12 +80,12 @@ router.get('/', async (req, res) => {
 
 //SHOW
 router.get('/:id', async (req, res) => {
-    console.log("controler /books/:id")
     const foundBook = await db.Books.findById(req.params.id)
     res.render('show', { data: foundBook })
 })
 
-//POST
+
+
 
 //EDIT Render
 router.get('/:id/edit', async (req, res) => {
@@ -75,8 +100,19 @@ router.put('/:id', async (req, res) => {
 })
 
 //DELETE
+router.delete('/:id', async (req, res) => {
+    //uses the Mongoose native functions to find and destroy
+    const deletedBook = await db.Books.findByIdAndDelete(req.params.id)
+    console.log('Deleting ' + deletedBook.title)
+    res.status(303).redirect('/books')
+})
 
-
+//ERROR
+router.get('/books/*', (req, res) => {
+    //for some reason, I am getting this pathing OFTEN in my console logs
+    console.log("router *")
+    res.render('error404')
+})
 
 //sends our exports
 module.exports = router

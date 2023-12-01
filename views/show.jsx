@@ -21,6 +21,9 @@ function showBook(book) {
                 <a href={`/books/${book.data.id}/edit`}>
                     <button className="btn-primary">Edit</button>
                 </a>
+                <form action={`/books/${book.data.id}?_method=DELETE`} method="POST">
+                    <input type='submit' value="DELETE" />
+                </form>
             </main>
 
         </Def >

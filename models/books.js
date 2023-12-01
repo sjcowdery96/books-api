@@ -11,7 +11,7 @@ const bookSchema = new mongoose.Schema({
     author: { type: String, required: true },
     year: { type: Number, default: 2023 },
     quantity: { type: Number, default: 10 },
-    imageURL: { type: String, default: 'http://placekitten.com/350/350' }
+    imageURL: { type: String, default: 'https://media.istockphoto.com/id/157482029/photo/stack-of-books.jpg?s=1024x1024&w=is&k=20&c=iQdICOnz_UmfAiFuY3d3LQe1B9cYHI3UwjTPNKBOlow=' }
 
 }, { toJSON: { virtuals: true } })
 

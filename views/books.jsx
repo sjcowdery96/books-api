@@ -12,8 +12,8 @@ function books() {
                         Photo by <a href="AUTHOR_LINK">Brenda Godinez</a> on <a href="UNSPLASH_LINK">Unsplash</a>
                     </div>
                 </div>
-                <a href="/books/seed">
-                    <button className="btn-primary">Seed Books</button>
+                <a href="/books/new">
+                    <button className="btn-primary">Add Book</button>
                 </a>
             </main>
 
