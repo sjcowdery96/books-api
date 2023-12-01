@@ -18,12 +18,12 @@ function showBook(book) {
                         Photo by <a href="AUTHOR_LINK">Brenda Godinez</a> on <a href="UNSPLASH_LINK">Unsplash</a>
                     </div>
                 </div>
-                <a href="/books/seed">
-                    <button className="btn-primary">Seed Books</button>
+                <a href={`/books/${book.data.id}/edit`}>
+                    <button className="btn-primary">Edit</button>
                 </a>
             </main>
 
-        </Def>
+        </Def >
     )
 }
 

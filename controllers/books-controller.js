@@ -60,6 +60,22 @@ router.get('/:id', async (req, res) => {
     res.render('show', { data: foundBook })
 })
 
+//POST
+
+//EDIT Render
+router.get('/:id/edit', async (req, res) => {
+    const editedBook = await db.Books.findById(req.params.id)
+    res.render('edit', editedBook)
+})
+
+//EDIT Put
+router.put('/:id', async (req, res) => {
+    const editedBook = await db.Books.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    res.redirect(`/books/${req.params.id}`)
+})
+
+//DELETE
+
 
 
 //sends our exports
