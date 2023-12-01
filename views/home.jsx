@@ -7,10 +7,7 @@ function home() {
             <main>
                 <h1>HOME</h1>
                 <div>
-                    <img src="/images/r2.jpg" alt="Sample Book" />
-                    <div>
-                        Photo by <a href="AUTHOR_LINK">Brenda Godinez</a> on <a href="UNSPLASH_LINK">Unsplash</a>
-                    </div>
+                    <img src="https://media.istockphoto.com/id/1354989842/photo/banner-with-books-business-and-education-background-back-to-school-concept.webp?b=1&s=170667a&w=0&k=20&c=sryJ6CANaeQ7vSw9TG_Z6dFb9wGlTdIHDh5_zxkIT5M=" alt="Sample Book" />
                 </div>
                 <a href="/books">
                     <button className="btn-primary">Books Page</button>

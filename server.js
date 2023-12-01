@@ -12,6 +12,7 @@ app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
+app.use(express.json())
 
 //if we navigate to /places we render our file from ./controllers/places
 const booksController = require('./controllers/books-controller.js')

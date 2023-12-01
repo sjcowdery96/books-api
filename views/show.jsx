@@ -11,7 +11,7 @@ function showBook(book) {
     return (
         <Def>
             <main>
-                <h1>{book.data.title}</h1>
+                <h1>📚 {book.data.title}</h1>
                 <div>
                     <img src={book.data.imageURL} alt={book.data.title} />
                     <div>

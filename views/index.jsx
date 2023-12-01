@@ -7,7 +7,7 @@ function index(data) {
             <div className="col-sm-6">
                 <h2>
                     <a href={`/books/${book._id}`} >
-                        {book.title}
+                        📚 {book.title}
                     </a>
                 </h2>
                 <p className="text-center">
